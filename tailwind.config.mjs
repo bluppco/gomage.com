@@ -51,12 +51,13 @@ module.exports = {
 			},
 			fontFamily: {
 
+				'apercu_pro': [ 'Apercu Pro', 'sans-serif' ]
 
 			}
 
 		}
 
 	},
-  	plugins: [require("tailwindcss-animate")],
+  	plugins: [ require("tailwindcss-animate") ],
 
 }
