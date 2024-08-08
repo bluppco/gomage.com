@@ -51,7 +51,9 @@ module.exports = {
 			},
 			fontFamily: {
 
-				'apercu_pro': [ 'Apercu Pro', 'sans-serif' ]
+				"apercu_pro": [ "Apercu Pro", "sans-serif" ],
+				"minion_pro": [ "minion-pro", "serif" ],
+				"source_sans_pro": [ "source-sans-pro", "sans-serif" ],
 
 			}
 
