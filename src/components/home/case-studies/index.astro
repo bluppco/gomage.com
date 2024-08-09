@@ -1,0 +1,133 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import CaseStudiesCard from "@/components/home/case-studies/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import Paragraph2xl from "@/atoms/atoms-nandini/paragraphs/2xl/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// CASE STUDIES ARRAY
+const casestudies = [
+
+    {
+        description:"Check out this case",
+        listitem:[
+            {
+                description1:"+25%",
+                description2:"Less bounces",
+                source:"/icons/arrow.svg",
+            },
+            {
+                description1:"+30%",
+                description2:"More avg duration",
+                source:"/icons/arrow.svg",
+            },
+            {
+                description1:"+66%",
+                description2:"More page views",
+                source:"/icons/arrow.svg",
+            }
+        ],
+        source:"/images/case-studies-1.png",
+        title:"GoodCook",
+    },
+    {
+        description:"Check out this case",
+        listitem:[
+            {
+                description1:"6x overall",
+                description2:"monthly revenue",
+                source:"/icons/arrow.svg",
+            },
+            {
+                description1:"10x faster",
+                description2:"overall performance",
+                source:"/icons/arrow.svg",
+            },
+            {
+                description1:"Print-on-demand",
+                description2:"functionality",
+                source:"/icons/arrow.svg",
+            }
+        ],
+        source:"/images/case-studies-2.png",
+        title:"Shirtee",
+    },
+    {
+        description:"Check out this case",
+        listitem:[
+            {
+                description1:"50%",
+                description2:"Speed boost",
+                source:"/icons/arrow.svg",
+            },
+            {
+                description1:"-14%",
+                description2:"Cart abandonment",
+                source:"/icons/arrow.svg",
+            },
+            {
+                description1:"x3 Faster",
+                description2:"checkout",
+                source:"/icons/arrow.svg",
+            }
+        ],
+        source:"/images/case-studies-3.png",
+        title:"Restaurant Supply",
+    },
+
+]
+
+// HARDCODED DATA
+const data ={
+
+    link:"/case-studies/",
+    source:"/icons/arrow-left.svg",
+    title:"EXPLORE ALL CASE STUDIES"
+
+}
+
+---
+<section class="my-10">
+    <Container>
+        <div class="space-y-10">
+            <div class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 gap-10">
+                {
+    
+                    casestudies.map( ( item ) =>{
+    
+                        return (
+    
+                            <CaseStudiesCard
+                                description={ item.description },
+                                listitem={ item.listitem }
+                                source={ item.source }
+                                title={ item.title }
+                            />
+    
+                        )
+    
+                    })
+    
+                }
+            </div>
+            <div class="group flex gap-5 items-center justify-center">
+                <Link aria_label={ data.link } href={ data.link }>
+                    <Paragraph2xl>{ data.title }
+                        <span class="inline-block size-10 pt-5 group-hover:translate-x-5">
+                            <PictureInternal 
+                                alternative_text={ data.title }
+                                source={ data.source }
+                            />
+                        </span>
+                    </Paragraph2xl>
+                </Link>
+            </div>
+        </div>
+    </Container>
+</section>
