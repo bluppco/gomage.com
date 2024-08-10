@@ -1,0 +1,25 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingThreeLgWhite from "@/atoms/atoms-shiva/headings/three/lg/semibold/center/white/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    source,
+    title,
+
+} = Astro.props
+
+---
+
+<div class="flex flex-col items-center gap-4">
+    <HeadingThreeLgWhite>{ title }</HeadingThreeLgWhite>
+    <div class="size-56">
+        <PictureContain
+            alternative_text=""
+            source={ source }
+        />
+    </div>
+</div>
