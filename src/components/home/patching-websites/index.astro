@@ -1,0 +1,40 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HEadingTwo6xlBoldCenterWhite from "@/atoms/atoms-nandini/headings/two/6xl/bold/center/white/index.astro"
+import ParagraphExtraLargeCenterWhite from "@/atoms/atoms-nandini/paragraphs/xl/center/white/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    description:"Your eCommerce business needs an all-round optimization strategy. With hyper-personalized approach at its core. Explore key ingredients to boosting our clients' conversions and sales.",
+    source:"/images/patching-websites.webp",
+    title:"Simply patching webstore issues won’t work."
+
+}
+
+---
+<section class="bg-gray-900 py-10">
+    <Container>
+        <div class="space-y-10">
+            <div class="space-y-5">
+                <div class="md:mx-40 xl:mx-60">
+                    <HEadingTwo6xlBoldCenterWhite>{ data.title }</HEadingTwo6xlBoldCenterWhite>
+                </div>
+                <div class="md:mx-40 xl:mx-60">
+                    <ParagraphExtraLargeCenterWhite>{ data.description }</ParagraphExtraLargeCenterWhite>
+                </div>
+            </div>
+            <div class="w-full aspect-video">
+                <PictureInternal 
+                    alternative_text={ data.title }
+                    source={ data.source }
+                />
+            </div>
+        </div>
+    </Container>
+</section>
