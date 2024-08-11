@@ -47,6 +47,7 @@ module.exports = {
 			},
 			colors: {
 
+				"dark-gray": "#1a232b",
 
 			},
 			fontFamily: {
