@@ -1,0 +1,112 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThree3xlBold from "@/atoms/atoms-nandini/headings/three/3xl/bold/index.astro"
+import HeadingTwo6xlBold from "@/atoms/atoms-nandini/headings/two/6xl/bold/index.astro"
+import ParagraphBase from "@/atoms/atoms-nandini/paragraphs/base/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// FAQS array
+const faqs =[
+
+    {
+        description:"Unlike many eCommerce agencies who focus solely on development projects, GoMage goes way beyond that. We look at any project from our client’s business ROI perspective and offer a full spectrum of services to ensure accelerated revenue boost: adoption of right-fit technology solutions, speed optimization, UX/UI best practices, SEO and CRO strategies, omnichannel marketing efforts, and anything else your eCommerce business might ever need.",
+        id:"submenu1",
+        onclick:"dropdown1()",
+        title:"How is GOMAGE different from other eCommerce agencies?"
+    },
+    {
+        description:"No worries — GoMage experts can help you out. We’ve got a number of frameworks helping to identify which eCommerce solution and technology might be the one you can benefit from the most. Wondering if it’s worth adopting PWA? Headless? Switching to another eCommerce CMS solution? Sales pitches aside, we’d be ready to assist you across this decision-making journey.",
+        id:"submenu2",
+        onclick:"dropdown2()",
+        title:"How can I understand which technology is the best fit for my eCommerce business?"
+    },
+    {
+        description:"We believe proactivity and communication are vital to the success of any project. We assign a dedicated project manager who serves as the main point of contact for our clients. We use Slack and email to provide regular updates, facilitate discussions, and address any concerns or questions that may arise during the project.",
+        id:"submenu3",
+        onclick:"dropdown3()",
+        title:"How does GOMAGE work with clients?"
+    },
+    {
+        description:"Yes, we provide comprehensive post-project support and maintenance services. Our team is available to address any issues, perform necessary updates, and provide ongoing assistance to ensure the continued success and smooth operation of the delivered solution.",
+        id:"submenu4",
+        onclick:"dropdown4()",
+        title:"Does GOMAGE offer post-project support and maintenance?"
+    },
+
+]
+
+// HARDCODED DATA
+const data={
+
+    source:"/images/faqs.png",
+    title:"Frequently Asked Questions",
+
+}
+
+---
+<section class="bg-gray-100 py-20">
+    <Container>
+        <div class="lg:grid lg:grid-cols-2 gap-10">
+            <div class="max-w-full aspect-square hidden lg:block">
+                <PictureInternal
+                    alternative_text={ data.title }
+                    source={ data.source }
+                />
+            </div>
+            <div class="space-y-10">
+                <HeadingTwo6xlBold>{ data.title }</HeadingTwo6xlBold>
+                { 
+
+                    faqs.map( ( item ) =>{
+
+                        return (
+
+                                <div class="space-y-5 border-b-2 pb-5">
+                                    <div class="flex justify-between cursor-pointer" onclick={ item.onclick }>
+                                        <div class="mr-5">
+                                            <HeadingThree3xlBold>{ item.title }</HeadingThree3xlBold>
+                                        </div>
+                                        <span class="inline-block size-5">
+                                            <PictureInternal 
+                                                alternative_text="icon"
+                                                source="/icons/down-arrow.svg"
+                                            />
+                                        </span>
+                                    </div>
+                                    <div id={ item.id }>
+                                        <ParagraphBase>{ item.description }</ParagraphBase>
+                                    </div>
+                                </div>
+
+                        )
+
+                    })
+
+                }
+            </div>
+        </div>
+    </Container>
+</section>
+
+<script type="text/javascript">
+    function dropdown1(){
+        document.querySelector('#submenu1').classList.toggle('hidden');
+    }
+    dropdown1()
+    function dropdown2(){
+        document.querySelector('#submenu2').classList.toggle('hidden');
+    }
+    dropdown2()
+    function dropdown3(){
+        document.querySelector('#submenu3').classList.toggle('hidden');
+    }
+    dropdown3()
+    function dropdown4(){
+        document.querySelector('#submenu4').classList.toggle('hidden');
+    }
+    dropdown4()
+</script>
