@@ -1,0 +1,64 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingFour2xlBold from "@/atoms/atoms-nandini/headings/four/2xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ListItemCenter from "@/atoms/atoms-nandini/list-items/center/index.astro"
+import Paragraph2xlUppercaseBoldCenter from "@/atoms/atoms-nandini/paragraphs/2xl/uppercase/bold/center/index.astro"
+import ParagraphSmallBold from "@/atoms/atoms-nandini/paragraphs/sm/bold/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const{
+
+    description,
+    listitem,
+    source,
+    title
+
+} = Astro.props
+
+---
+<div class="bg-gray-100 p-2 space-y-5">
+    <div class="overflow-hidden">
+        <div class="w-full aspect-video scale-100 hover:scale-105">
+            <PictureInternal 
+                alternative_text={ title }
+                source={ source }
+            />
+        </div>
+    </div>
+    <HeadingFour2xlBold>{ title }</HeadingFour2xlBold>
+    <ul>
+        {
+
+            listitem.map( ( item ) =>{
+
+                return ( 
+
+                    <ListItemCenter>
+                        <span class="inline-block size-5 mt-2 pr-2 rotate-90">
+                            <PictureInternal
+                                alternative_text={ item.description1 }
+                                source={ item.source }
+                            />
+                        </span>
+                        <span class="inline-block pr-2">
+                            <ParagraphSmallBold>{ item.description1 }</ParagraphSmallBold>
+                        </span>
+                        { item.description2 }
+                    </ListItemCenter>
+
+                )
+
+            })
+
+        }
+        
+    </ul>
+    <div class="bg-green-400 hover:bg-green-500 p-5">
+        <Link aria_label="case-study-goodbook" href="/case-study/goodcook/">
+            <Paragraph2xlUppercaseBoldCenter>{ description }</Paragraph2xlUppercaseBoldCenter>
+        </Link>
+    </div>
+</div>

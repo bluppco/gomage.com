@@ -1,0 +1,54 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ButtonGreen from "@/atoms/atoms-nandini/buttons/green/index.astro"
+import HeadingTwo3xlBold from "@/atoms/atoms-nandini/headings/two/3xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphLarge from "@/atoms/atoms-nandini/paragraphs/lg/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_link:"/services/",
+    button_text:"SEE WHAT WE OFFER",
+    description:"We follow the ROI-driven approach. We analyze what you need to grow from traffic to conversions and provide all rounded services to you.",
+    source1:"/images/what-we-offer-3.webp",
+    source2:"/images/what-we-offer-1.webp",
+    source3:"/images/what-we-offer-2.svg",
+    title:"Hey! Your growth fuels ours.",
+
+}
+
+---
+<section class="bg-gray-50">
+    <div class="relative flex h-screen overflow-hidden">
+        <div class="h-2/3 aspect-video absolute right-0 bottom-0">
+            <PictureInternal 
+                alternative_text={ data.title }
+                source={ data.source1 }
+            />
+        </div>
+        <div class="h-4/5 aspect-video absolute left-0 top-0">
+            <PictureInternal 
+                alternative_text={ data.title }
+                source={ data.source2 }
+            />
+        </div>
+        <div class="h-full aspect-square absolute left-60 right-60">
+            <PictureInternal 
+                alternative_text={ data.title }
+                source={ data.source3 }
+            />
+        </div>
+        <div class="absolute left-5 md:left-60 md:right-40 top-40 bottom-40 space-y-10">
+            <HeadingTwo3xlBold>{ data.title }</HeadingTwo3xlBold>
+            <ParagraphLarge>{ data.description }</ParagraphLarge>
+            <div>
+                <Link aria_label={ data.button_link } href={ data.button_link }>
+                    <ButtonGreen>{ data.button_text }</ButtonGreen>
+                </Link>
+            </div>
+        </div>
+    </div>
+</section>
