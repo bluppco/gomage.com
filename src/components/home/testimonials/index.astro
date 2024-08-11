@@ -1,0 +1,96 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT JSX COMPONENT
+import Cube from "@/components/home/testimonials/cube/jsx/index"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwo6XlBold from "@/atoms/atoms-shiva/headings/two/6xl/bold/center/leading/index.astro"
+import Link from "@/atoms/links/index.astro"
+import Paragraph3Xl from "@/atoms/atoms-shiva/paragraphs/3xl/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = { 
+
+    link_text: "Read more reviews on Clutch",
+    link: "/",
+    title: "Honored to have witnessed their eCommerce success and be part of it.",
+
+}
+const cube_side = [
+
+    {
+        content: {
+
+            link: "/",
+            name: "David Kurz",
+            review: "Page speed and conversion rates have improved significantly thanks to GoMage. Overall, they deliver on time, stay within budget, and manage the project well.",
+            source: "/icons/clutch.png",
+            title: "eCommerce System Manager, Concourse Team Express",
+
+        },
+        face_side: "front",
+    },
+    {
+        content: {
+
+            link: "/",
+            name: "Mercy Adebayo",
+            review: "We needed a flexible vendor, ready to adapt to our communication requirements and with terrific project management skills. GOMAGE turned out to be the one.",
+            source: "/icons/clutch.png",
+            title: "Director or eCommerce, Clothing Company",
+
+        },
+        face_side: "left",
+    },
+    {
+        content: {
+
+            link: "/",
+            name: "Asia Lal",
+            review: "GoMage successfully migrated the company's platform to Magento. With their work, the firm's conversion rate and revenue have jumped by 50%.",
+            source: "/icons/clutch.png",
+            title: "Director of eCommerce, Evolutions Brands",
+
+        },
+        face_side: "back",
+    },
+    {
+        content: {
+
+            link: "/",
+            name: "Froy Terriquez",
+            review: "Since GoPWA storefront adoption, we’ve noted a steady increase in traffic. We’re already selling products through the new PWA without having started any marketing activities.",
+            source: "/icons/clutch.png",
+            title: "Direct to Consumer Website (DTC) Manager, Bradshaw International (GooCook)",
+
+        },
+        face_side: "right",
+    },
+
+]
+
+---
+
+<section class="py-16 bg-white">
+    <ContainerSmall>
+        <div class="flex flex-col gap-20 md:gap-6 justify-center">
+            <HeadingTwo6XlBold>{ data.title }</HeadingTwo6XlBold>
+            <Cube cube_data={ cube_side } client:load />
+            <Link href={ data.link }>
+                <div class="flex gap-4 justify-center items-center group">
+                    <Paragraph3Xl>{ data.link_text }</Paragraph3Xl>
+                    <div class="w-12 aspect-video group-hover:translate-x-2 duration-300">
+                        <PictureContain
+                            alternative_text=""
+                            source="/icons/arrow-right.svg"
+                        />
+                    </div>
+                </div>
+            </Link>
+        </div>
+    </ContainerSmall>
+</section>
