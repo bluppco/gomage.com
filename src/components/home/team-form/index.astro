@@ -1,0 +1,96 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonGreenLarge from "@/atoms/atoms-nandini/buttons/green/large/index.astro"
+import HeadingThree5xlBold from "@/atoms/atoms-nandini/headings/three/5xl/bold/index.astro"
+import Input from "@/atoms/atoms-nandini/inputs/input/index.astro"
+import InputLarge from "@/atoms/atoms-nandini/inputs/input-large/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphGray from "@/atoms/atoms-nandini/paragraphs/gray/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// INPUT ARRAY
+const input = [
+    {
+        description:"Your name*",
+    },
+    {
+        description:"E-mail*",
+    },
+]
+
+//HARDCODED DATA
+const data ={
+
+    button_text:"BOOK A CALL",
+    description:"Message",
+    sub_title:"Start a project with us — and see it yourself.",
+    title:"GoMage is a revenue-boosting force for your team."
+}
+---
+<section class="py-20 bg-gray-100">
+    <Container>
+        <div class="space-y-20 md:grid md:grid-cols-2 gap-10 xl:gap-20 lg:px-20">
+            <div class="bg-gray-200 flex h-80">
+                <div class="size-80">
+                    <PictureInternal 
+                        alternative_text=""
+                        source="/images/team-1.png"
+                    />
+                </div>
+                <div class="size-80">
+                    <PictureInternal 
+                        alternative_text=""
+                        source="/images/team-2.png"
+                    />
+                </div>
+            </div>
+            <div class="space-y-10">
+                <HeadingThree5xlBold>{ data.title }</HeadingThree5xlBold>
+                <div>
+                    <span class="font-apercu_pro">{ data.sub_title }</span>
+                </div>
+                <div class="space-y-5">
+                    {
+
+                        input.map( ( item ) =>{
+
+                            return (
+
+                                    <div>
+                                        <ParagraphGray>{ item.description }</ParagraphGray>
+                                        <Input />
+                                    </div>
+
+                            )
+
+                        })
+
+                    }
+                    
+                    <div>
+                        <ParagraphGray>{ data.description }</ParagraphGray>
+                        <InputLarge />
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <input id="checked" type="checkbox">
+                    <span class="font-minion_pro text-sm">I consent to my data being processed as described in the 
+                        <Link  aria_label="" href="/terms-of-use/">
+                            <span class="ml-1 font-medium text-base underline hover:no-underline">Terms of Use</span>
+                        </Link> and the
+                        <Link  aria_label="" href="/privacy-policy/">
+                            <span class="ml-1 font-medium text-base underline hover:no-underline">Privacy Policy</span>
+                        </Link>
+                        </span>
+                </div>
+                <div class="w-full">
+                    <ButtonGreenLarge>{ data.button_text }</ButtonGreenLarge>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
