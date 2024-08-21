@@ -1,0 +1,48 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonGreenLarge from "@/atoms/atoms-nandini/buttons/green/large/index.astro"
+import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
+import HeadingOne6xlBoldWhite from "@/atoms/atoms-nandini/headings/one/6xl/bold/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphLargeWhite from "@/atoms/atoms-nandini/paragraphs/lg/white/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_green:"get a free consultation",
+    button_transparent_link:"/magento-mobile-app-development/#calculator",
+    button_transparent_text:"Get ROI working with us",
+    sub_title:"We go beyond simply building sites, we create online experiences that convert. From development & design to marketing & CRO – ",
+    title:"Future-ready tech solutions to support ROI-driven strategies "
+
+}
+
+---
+
+
+<section class="py-20 bg-dark_gray">
+    <Container>
+        <div class="space-y-5 md:space-y-10">
+            <div class="xl:mr-40 2xl:mr-60">
+                <HeadingOne6xlBoldWhite>{ data.title }</HeadingOne6xlBoldWhite>
+            </div>
+            <div class="md:mr-40 lg:mr-60 xl:mr-80">
+                <ParagraphLargeWhite>{ data.sub_title }<span class="text-gray-500 font-bold">everything for your eCommerce success under one roof.</span></ParagraphLargeWhite>
+            </div>
+            <div class="md:pt-10 space-y-4 md:space-y-8 md:mx-40 lg:mx-60 xl:mx-80">
+                <div class="flex justify-center">
+                    <ButtonGreenLarge>{ data.button_green }</ButtonGreenLarge>
+                </div>
+                <div class="flex justify-center">
+                    <Link aria_label={ data.button_transparent_text } href={ data.button_transparent_link }>
+                        <ButtonTransparent>{ data.button_transparent_text }</ButtonTransparent>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
