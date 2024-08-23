@@ -4,3 +4,74 @@
     src: url('/fonts/apercu_regular_pro.otf');
 
 }
+
+/* TESTIMONIAL CUBE STYLES */
+.cube-container {
+    perspective: 3000px; 
+}
+  
+.cube {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+  
+.face {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid gray;
+}
+  
+.front {
+    transform: rotateY(0deg) translateZ(150px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(150px);
+}
+  
+.right {
+    transform: rotateY(90deg) translateZ(150px);
+}
+  
+.left {
+    transform: rotateY(-90deg) translateZ(150px);
+}
+
+  
+@media screen and (min-width: 640px) {
+
+    .cube {
+
+        width: 400px;
+        height: 400px;
+
+    }
+
+    .face {
+
+        width: 400px;
+        height: 400px;
+
+    }
+
+    .front {
+        transform: rotateY(0deg) translateZ(200px);
+    }
+    
+    .back {
+        transform: rotateY(180deg) translateZ(200px);
+    }
+      
+    .right {
+        transform: rotateY(90deg) translateZ(200px);
+    }
+      
+    .left {
+        transform: rotateY(-90deg) translateZ(200px);
+    }
+       
+}

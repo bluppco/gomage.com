@@ -1,0 +1,60 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO ATOMS
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const logos = [
+
+    {
+        alternative_text: "",
+        source: "/logo/adobe-partner.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/hyva-partner.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/shopify-partner.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/clutch-partner.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/33-partner.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/14-partners.svg",
+    },
+
+]
+
+---
+
+<section class="bg-dark-gray py-16">
+    <ContainerSmall>
+        <div class="grid grid-cols-2 md:flex gap-4">
+            {
+
+                logos.map( ( logo ) => (
+
+                    <div class="w-full aspect-video">
+                        <PictureContain
+                            alternative_text={ logo.alternative_text }
+                            source={ logo.source }
+                        />
+                    </div>
+
+                ))
+
+            }
+        </div>
+    </ContainerSmall>
+</section>
